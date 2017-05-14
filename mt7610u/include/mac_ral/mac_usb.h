@@ -288,7 +288,6 @@ typedef struct _CMD_RSP_CONTEXT
 				if (pAd->DeQueueRunning[QueIdx])						\
 				{														\
 					RTMP_IRQ_UNLOCK(&pAd->DeQueueLock[QueIdx], irqFlags);\
-					//DBGPRINT(RT_DEBUG_OFF, ("DeQueueRunning[%d]= TRUE!\n", QueIdx));		\
 					continue;											\
 				}														\
 				else													\
