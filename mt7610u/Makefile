@@ -325,12 +325,6 @@ else
 all: $(TARGET)
 endif 
 
-
-
-build_tools:
-	$(MAKE) -C tools
-	$(RT28xx_DIR)/tools/bin2h
-
 test:
 	$(MAKE) -C tools test
 
