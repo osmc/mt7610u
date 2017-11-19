@@ -32,6 +32,10 @@
 #include "rtmp_osabl.h"
 #include "rt_os_util.h"
 
+#include <linux/slab.h>
+#define __vfs_read(a,b,c,d) vfs_read(a,b,c,d)
+#define __vfs_write(a,b,c,d) vfs_write(a,b,c,d)
+
 #if defined(CONFIG_RA_HW_NAT) || defined(CONFIG_RA_HW_NAT_MODULE)
 #include "../../../../../../net/nat/hw_nat/ra_nat.h"
 #include "../../../../../../net/nat/hw_nat/frame_engine.h"
