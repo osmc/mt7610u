@@ -1088,7 +1088,11 @@ int RtmpOSFileRead(RTMP_OS_FD osfd, char *pDataPtr, int readLen)
 {
 	/* The object must have a read method */
 	if (osfd->f_op) {
+		#if LINUX_VERSION_CODE < KERNEL_VERSION(4,14,0)
 		return __vfs_read(osfd, pDataPtr, readLen, &osfd->f_pos);
+		#else
+		return kernel_read(osfd, pDataPtr, readLen, &osfd->f_pos);
+		#endif
 	} else {
 		DBGPRINT(RT_DEBUG_ERROR, ("no file read method\n"));
 		return -1;
